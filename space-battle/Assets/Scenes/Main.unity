@@ -731,7 +731,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 483809861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913354301}
+        m_MethodName: ConnectToLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &483809861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1556,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 853682337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913354300}
+        m_MethodName: ChooseSpaceShip
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &853682337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,7 +1685,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 854817077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913354300}
+        m_MethodName: ChooseSpaceShip
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &854817077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,7 +2487,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1648462887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913354301}
+        m_MethodName: ConnectToServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1648462887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,7 +3030,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1757359133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913354300}
+        m_MethodName: ChooseSpaceShip
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1757359133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3066,7 +3121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a214fcdfd309f4fb4d1dde7a7a4089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiPanelManager: {fileID: 0}
+  uiPanelManager: {fileID: 1680917528}
   numberOfPlayers: 2
 --- !u!4 &1913354302
 Transform:
