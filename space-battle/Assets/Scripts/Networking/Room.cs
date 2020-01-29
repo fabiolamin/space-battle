@@ -7,6 +7,7 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     private Timer timer;
     private RaiseEventManager raiseEventManager;
+    private PlayerNetworkingSettings playerNetworkingSettings;
     [SerializeField] private UIPanelManager uiPanelManager;
     [SerializeField] private byte numberOfPlayers = 2;
 
@@ -14,6 +15,7 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         timer = GetComponent<Timer>();
         raiseEventManager = GetComponent<RaiseEventManager>();
+        playerNetworkingSettings = GetComponent<PlayerNetworkingSettings>();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -30,6 +32,11 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
         };
 
         PhotonNetwork.CreateRoom(name, options);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        playerNetworkingSettings.InstantiatePlayer();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

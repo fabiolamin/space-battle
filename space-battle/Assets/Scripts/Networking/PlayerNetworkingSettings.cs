@@ -6,11 +6,8 @@ public class PlayerNetworkingSettings : MonoBehaviour
 {
     private int index;
     [SerializeField] private InputField playerName;
-
-    public void ChooseSpaceShip(int value)
-    {
-        index = value;
-    }
+    [SerializeField] private GameObject[] spaceships;
+    [SerializeField] private Transform spawn;
 
     public void SetNickName()
     {
@@ -28,5 +25,15 @@ public class PlayerNetworkingSettings : MonoBehaviour
     private bool IsInputFieldEmpty()
     {
         return playerName == null;
+    }
+
+    public void ChooseSpaceShip(int value)
+    {
+        index = value;
+    }
+
+    public void InstantiatePlayer()
+    {
+        PhotonNetwork.Instantiate(spaceships[index].name, spawn.position, Quaternion.identity);
     }
 }
