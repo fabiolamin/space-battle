@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private PhotonView photonView;
     private Rigidbody2D playerRigidbody;
     private Vector2 screenBoundaries;
     private float spriteWidth;
@@ -10,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        photonView = GetComponent<PhotonView>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         screenBoundaries = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         spriteWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
@@ -18,12 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if(photonView.IsMine)
+        {
+            Move();
+        }
     }
 
     private void LateUpdate()
     {
-        SetBoundaries();
+        if(photonView.IsMine)
+        {
+            SetBoundaries();
+        }
     }
 
     private void Move()
