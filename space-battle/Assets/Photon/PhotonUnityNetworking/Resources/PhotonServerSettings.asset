@@ -34,5 +34,8 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - Shoot
+  - InstantiateMissiles
+  - SetShooting
   DisableAutoOpenWizard: 1
   ShowSettings: 0
