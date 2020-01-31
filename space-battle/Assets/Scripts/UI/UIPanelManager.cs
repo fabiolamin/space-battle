@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPanelManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, winnerPanel;
+    [SerializeField] private Text connectionStatus;
+    public Text ConnectionStatus 
+    {
+        get{ return connectionStatus; }
+        set{ connectionStatus = value; }
+    }
 
     private void Awake()
     {

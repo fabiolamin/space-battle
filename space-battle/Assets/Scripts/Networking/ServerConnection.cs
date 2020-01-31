@@ -14,11 +14,13 @@ public class ServerConnection : MonoBehaviourPunCallbacks
     public void ConnectToServer()
     {
         playerNetworkingSettings.SetNickName();
+        uiPanelManager.EnableLobbyPanel();
         PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnConnectedToMaster()
     {
-        uiPanelManager.EnableStartPanel();
+        PhotonNetwork.JoinLobby();
+        uiPanelManager.ConnectionStatus.text = "Finding a match...";
     }
 }
