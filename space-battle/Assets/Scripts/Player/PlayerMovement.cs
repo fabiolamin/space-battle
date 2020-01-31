@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void SetBoundaries()
     {
         Vector3 position = transform.position;
-        position.x = Mathf.Clamp(position.x, 0f + spriteWidth, screenBoundaries.x - spriteWidth);
+        position.x = Mathf.Clamp(position.x, 140f + spriteWidth, screenBoundaries.x - spriteWidth);
         position.y = Mathf.Clamp(position.y, 0f + spriteHeight, screenBoundaries.y - spriteHeight);
         transform.position = position;
     }
