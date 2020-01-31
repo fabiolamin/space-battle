@@ -24,7 +24,7 @@ public class PlayerNetworkingSettings : MonoBehaviour
 
     private bool IsInputFieldEmpty()
     {
-        return playerName == null;
+        return playerName.text == "";
     }
 
     public void ChooseSpaceShip(int value)
