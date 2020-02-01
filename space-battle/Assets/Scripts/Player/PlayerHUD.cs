@@ -3,7 +3,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerHUD : MonoBehaviour
 {
     private PhotonView photonView;
     [SerializeField] private Text nickname;
