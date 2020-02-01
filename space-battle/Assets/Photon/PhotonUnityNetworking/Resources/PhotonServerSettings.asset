@@ -38,5 +38,9 @@ MonoBehaviour:
   - InstantiateMissiles
   - SetShooting
   - ShowNickname
+  - InstantiateAsteroids
+  - SetAllAsteroids
+  - Disable
+  - Enable
   DisableAutoOpenWizard: 1
   ShowSettings: 0

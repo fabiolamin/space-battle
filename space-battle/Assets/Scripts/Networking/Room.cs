@@ -10,6 +10,7 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
     private PlayerNetworkingSettings playerNetworkingSettings;
     [SerializeField] private UIPanelManager uiPanelManager;
     [SerializeField] private byte numberOfPlayers = 2;
+    [SerializeField] private AsteroidSpawn asteroidSpawn;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             raiseEventManager.Create(0, "Room Panel");
             timer.SetTimer();
+            asteroidSpawn.InstantiateAsteroids();
         }
     }
 
