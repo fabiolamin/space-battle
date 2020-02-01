@@ -1165,6 +1165,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538148261}
   m_CullTransparentMesh: 0
+--- !u!1 &539049675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539049677}
+  - component: {fileID: 539049676}
+  m_Layer: 0
+  m_Name: AsteroidSpawn
+  m_TagString: AsteroidSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539049676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539049675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f1032d8b9151d4787471a1164d9ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroid: {fileID: 1298271622875385172, guid: 29b2dbe75cfb6fa4aad8521e7595b485,
+    type: 3}
+  numberOfAsteroids: 30
+  maximumXPosition: 1000
+  minimumXPosition: 220
+  maximumYPosition: 500
+  minimumYPosition: 90
+--- !u!4 &539049677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539049675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &598888951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,6 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanelManager: {fileID: 1680917528}
   numberOfPlayers: 2
+  asteroidSpawn: {fileID: 539049676}
 --- !u!1 &1918755310
 GameObject:
   m_ObjectHideFlags: 0
