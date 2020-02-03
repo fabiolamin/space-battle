@@ -42,5 +42,16 @@ MonoBehaviour:
   - SetAllAsteroids
   - Disable
   - Enable
+  - UpdateScore
+  - SetUpdateScore
+  - SetScoreRPC
+  - UpdateScoreRPC
+  - UpdateTest
+  - UpdateScoreboardRPC
+  - SetScoreboard
+  - SetScore
+  - ShowScore
+  - ShowNicknameRPC
+  - ShowScoreRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0

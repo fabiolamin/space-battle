@@ -23,7 +23,9 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Missile"))
         {
-            collision.gameObject.SetActive(false);
+            Missile missile = collision.gameObject.GetComponent<Missile>();
+            missile.playerWhoShot.AddPoints();
+            missile.Disable();
             SetAsDisabled();
             asteroidSpawn.AddDisabledAsteroid();
             asteroidSpawn.VerifyIfAllAsteroidsAreDisabled();

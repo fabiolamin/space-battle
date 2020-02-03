@@ -36,6 +36,7 @@ public class PlayerShooting : MonoBehaviour
         {
             missiles[position] = Instantiate(missile, missileSpawn.position, Quaternion.identity).GetComponent<Missile>();
             missiles[position].Disable();
+            missiles[position].playerWhoShot = GetComponent<PlayerScore>();
         }
     }
 

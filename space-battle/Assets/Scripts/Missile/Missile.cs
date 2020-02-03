@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Realtime;
 
 public class Missile : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Missile : MonoBehaviour
     private Rigidbody2D missileRigidbody;
     [SerializeField] float shootingForce = 1000f;
     [SerializeField] float timeToDisable = 2f;
+    public PlayerScore playerWhoShot { get; set; }
 
     private void Awake()
     {
