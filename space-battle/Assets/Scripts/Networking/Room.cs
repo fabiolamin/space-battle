@@ -12,6 +12,12 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
     [SerializeField] private byte numberOfPlayers = 2;
     [SerializeField] private AsteroidSpawn asteroidSpawn;
 
+    public int NumberOfPlayers
+    {
+        get { return numberOfPlayers; }
+        private set { numberOfPlayers = (byte)value; }
+    }
+
     private void Awake()
     {
         timer = GetComponent<Timer>();
@@ -44,15 +50,20 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount == numberOfPlayers)
         {
-            raiseEventManager.Create(0, "Room Panel");
-            timer.SetTimer();
-            asteroidSpawn.InstantiateAsteroids();
+            SetRoom();
         }
+    }
+
+    private void SetRoom()
+    {
+        raiseEventManager.Create(0, "Room Panel");
+        timer.SetTimer();
+        asteroidSpawn.InstantiateAsteroids();
     }
 
     public void OnEvent(EventData photonEvent)
     {
-        if (photonEvent.Code == 0 && photonEvent.CustomData.ToString() == "Room Panel")
+        if (photonEvent.Code == 0)
         {
             uiPanelManager.EnableRoomPanel();
         }
