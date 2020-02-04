@@ -56,9 +56,26 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private void SetRoom()
     {
-        raiseEventManager.Create(0, "Room Panel");
         timer.SetTimer();
         asteroidSpawn.InstantiateAsteroids();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            raiseEventManager.Create(0, "Room Panel");
+        }
+    }
+
+    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.ContainsKey("Timer"))
+        {
+            timer.CurrentTime = (float)propertiesThatChanged["Timer"];
+            timer.SetText();
+
+            if (timer.CurrentTime <= 0 && PhotonNetwork.IsMasterClient)
+            {
+                raiseEventManager.Create(1, "Scoreboard Panel");
+            }
+        }
     }
 
     public void OnEvent(EventData photonEvent)
@@ -67,5 +84,20 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             uiPanelManager.EnableRoomPanel();
         }
+
+        else if (photonEvent.Code == 1)
+        {
+            uiPanelManager.EnableScoreboardPanel();
+        }
+    }
+
+    public void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }
