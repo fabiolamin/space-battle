@@ -7,9 +7,9 @@ public class Timer : MonoBehaviourPunCallbacks
 {
     ExitGames.Client.Photon.Hashtable customPropertie;
     private bool hasStarted = false;
-    private float time;
-    [SerializeField] float initialTime = 180f;
+    [SerializeField] float initialTime = 15f;
     [SerializeField] Text timerText;
+    public float CurrentTime { get; set; }
 
     private void Update()
     {
@@ -23,10 +23,10 @@ public class Timer : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            time = initialTime;
+            CurrentTime = initialTime;
             customPropertie = new ExitGames.Client.Photon.Hashtable()
             {
-                {"Timer",time}
+                {"Timer", CurrentTime}
             };
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(customPropertie);
@@ -39,26 +39,20 @@ public class Timer : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            time -= Time.deltaTime;
+            CurrentTime -= Time.deltaTime;
             ExitGames.Client.Photon.Hashtable auxiliaryCustomPropertie = PhotonNetwork.CurrentRoom.CustomProperties;
             auxiliaryCustomPropertie.Remove("Timer");
-            auxiliaryCustomPropertie.Add("Timer", time);
+            auxiliaryCustomPropertie.Add("Timer", CurrentTime);
             PhotonNetwork.CurrentRoom.SetCustomProperties(auxiliaryCustomPropertie);
         }
     }
 
-    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    public void SetText()
     {
-        time = (float)propertiesThatChanged["Timer"];
-        SetText();
-    }
-
-    private void SetText()
-    {
-        if (time > 0)
+        if (CurrentTime > 0)
         {
-            int minutes = (int)time / 60;
-            int seconds = (int)time % 60;
+            int minutes = (int)CurrentTime / 60;
+            int seconds = (int)CurrentTime % 60;
 
             timerText.text = minutes + ":" + seconds.ToString("D2");
         }
