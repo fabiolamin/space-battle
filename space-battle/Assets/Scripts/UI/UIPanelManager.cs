@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Photon.Realtime;
 
 public class UIPanelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, winnerPanel;
+    [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, scoreboardPanel;
     [SerializeField] private Text connectionStatus;
+    [SerializeField] private Text winnerNickname;
+    [SerializeField] private Text winnerScore;
     public Text ConnectionStatus 
     {
         get{ return connectionStatus; }
@@ -23,7 +26,7 @@ public class UIPanelManager : MonoBehaviour
         startPanel.SetActive(false);
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(false);
-        winnerPanel.SetActive(false);
+        scoreboardPanel.SetActive(false);
     }
     public void EnableMainMenuPanel()
     {
@@ -48,9 +51,9 @@ public class UIPanelManager : MonoBehaviour
         roomPanel.SetActive(true);
     }
 
-    public void EnableGameOverPanel()
+    public void EnableScoreboardPanel()
     {
         roomPanel.SetActive(false);
-        winnerPanel.SetActive(true);
+        scoreboardPanel.SetActive(true);
     }
 }
