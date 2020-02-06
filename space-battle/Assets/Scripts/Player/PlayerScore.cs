@@ -5,32 +5,30 @@ using ExitGames.Client.Photon;
 
 public class PlayerScore : MonoBehaviourPunCallbacks
 {
-    private int value = 0;
     private PlayerHUD playerHUD;
     private PhotonView photonView;
-    private ExitGames.Client.Photon.Hashtable customProperties;
-    [SerializeField] private int scoreToIncrease = 10;
+    [SerializeField] private int scoreToIncrease = 1;
+    public int Score { get; private set; }
 
     private void Awake()
     {
         playerHUD = GetComponent<PlayerHUD>();
         photonView = GetComponent<PhotonView>();
-        value = 0;
-        SetScore();
-    }
-
-    public void SetScore()
-    {
-        customProperties = new ExitGames.Client.Photon.Hashtable();
-        customProperties.Add("Score", value);
-        photonView.Owner.SetCustomProperties(customProperties);
+        Score = 0;
     }
 
     public void AddScore()
     {
-        value += scoreToIncrease;
-        photonView.Owner.CustomProperties.Remove("Score");
-        photonView.Owner.CustomProperties.Add("Score", value);
-        playerHUD.ShowScore(value);
+        if(photonView.IsMine)
+        {
+            photonView.RPC("Add", RpcTarget.AllBuffered);
+            playerHUD.ShowScore(Score);
+        }
+    }
+
+    [PunRPC]
+    private void Add()
+    {
+        Score += scoreToIncrease;
     }
 }

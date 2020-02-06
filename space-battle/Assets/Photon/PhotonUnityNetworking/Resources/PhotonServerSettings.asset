@@ -53,5 +53,6 @@ MonoBehaviour:
   - ShowScore
   - ShowNicknameRPC
   - ShowScoreRPC
+  - Add
   DisableAutoOpenWizard: 1
   ShowSettings: 0
