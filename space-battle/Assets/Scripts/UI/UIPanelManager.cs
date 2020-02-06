@@ -6,8 +6,6 @@ public class UIPanelManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, scoreboardPanel;
     [SerializeField] private Text connectionStatus;
-    [SerializeField] private Text winnerNickname;
-    [SerializeField] private Text winnerScore;
     public Text ConnectionStatus 
     {
         get{ return connectionStatus; }
