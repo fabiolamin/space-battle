@@ -100,4 +100,10 @@ public class Room : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         PhotonNetwork.RemoveCallbackTarget(this);
     }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        uiPanelManager.DisableAllPanels();
+        uiPanelManager.EnableMainMenuPanel();
+    }
 }

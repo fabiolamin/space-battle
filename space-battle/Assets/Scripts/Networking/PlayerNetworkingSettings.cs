@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PlayerNetworkingSettings : MonoBehaviour
 {
@@ -35,5 +36,11 @@ public class PlayerNetworkingSettings : MonoBehaviour
     public void InstantiatePlayer()
     {
         PhotonNetwork.Instantiate(spaceships[index].name, spawn.position, Quaternion.identity);
+    }
+
+    public void DisconnectPlayer()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene(0);
     }
 }

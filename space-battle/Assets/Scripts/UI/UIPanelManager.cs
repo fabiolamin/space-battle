@@ -18,7 +18,7 @@ public class UIPanelManager : MonoBehaviour
         EnableMainMenuPanel();
     }
 
-    private void DisableAllPanels()
+    public void DisableAllPanels()
     {
         mainMenuPanel.SetActive(false);
         startPanel.SetActive(false);
@@ -28,6 +28,7 @@ public class UIPanelManager : MonoBehaviour
     }
     public void EnableMainMenuPanel()
     {
+        scoreboardPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 
