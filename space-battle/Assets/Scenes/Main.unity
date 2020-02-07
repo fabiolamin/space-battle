@@ -3263,6 +3263,8 @@ MonoBehaviour:
   playerName: {fileID: 1745808044}
   spaceships:
   - {fileID: 6192573678888621862, guid: f1aa3e3f5e7ae9641a817a3f099baf01, type: 3}
+  - {fileID: 6192573678888621862, guid: 960e24a507081cb4bb9f5e9f5fbe63d3, type: 3}
+  - {fileID: 6192573678888621862, guid: 34123631146168344ba5532f5d08a6c4, type: 3}
   spawn: {fileID: 1735060485}
 --- !u!114 &1913354301
 MonoBehaviour:
