@@ -4,7 +4,7 @@ using Photon.Realtime;
 
 public class UIPanelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, scoreboardPanel;
+    [SerializeField] private GameObject mainMenuPanel, startPanel, lobbyPanel, roomPanel, scoreboardPanel, tutorialPanel, creditsPanel;
     [SerializeField] private Text connectionStatus;
     public Text ConnectionStatus 
     {
@@ -28,6 +28,8 @@ public class UIPanelManager : MonoBehaviour
     }
     public void EnableMainMenuPanel()
     {
+        tutorialPanel.SetActive(false);
+        creditsPanel.SetActive(false);
         scoreboardPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
@@ -54,5 +56,17 @@ public class UIPanelManager : MonoBehaviour
     {
         roomPanel.SetActive(false);
         scoreboardPanel.SetActive(true);
+    }
+
+    public void EnableTutorialPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        tutorialPanel.SetActive(true);
+    }
+
+    public void EnableCreditsPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        creditsPanel.SetActive(true);
     }
 }
