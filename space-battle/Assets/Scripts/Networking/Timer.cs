@@ -7,7 +7,7 @@ public class Timer : MonoBehaviourPunCallbacks
 {
     ExitGames.Client.Photon.Hashtable customPropertie;
     private bool hasStarted = false;
-    [SerializeField] float initialTime = 15f;
+    [SerializeField] float initialTime = 60f;
     [SerializeField] Text timerText;
     public float CurrentTime { get; set; }
 
