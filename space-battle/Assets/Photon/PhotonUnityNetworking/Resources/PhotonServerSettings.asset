@@ -54,5 +54,8 @@ MonoBehaviour:
   - ShowNicknameRPC
   - ShowScoreRPC
   - Add
+  - PlayParticles
+  - PlayParticle
+  - PlayRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0

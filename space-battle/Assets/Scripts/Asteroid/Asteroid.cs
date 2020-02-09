@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour
     private PhotonView photonView;
     private AsteroidSpawn asteroidSpawn;
     [SerializeField] private float speedRotation = 40f;
+    public int Index { get; set; }
 
     private void Awake()
     {
@@ -24,11 +25,12 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.CompareTag("Missile"))
         {
             Missile missile = collision.gameObject.GetComponent<Missile>();
+            missile.playerWhoShot.AddScore();
             missile.Disable();
             SetAsDisabled();
-            missile.playerWhoShot.AddScore();
             asteroidSpawn.AddDisabledAsteroid();
             asteroidSpawn.VerifyIfAllAsteroidsAreDisabled();
+            asteroidSpawn.InstatiatedParticles[Index].Play();
         }
     }
 

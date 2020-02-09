@@ -6,8 +6,10 @@ public class AsteroidSpawn : MonoBehaviour
     private int numberOfDisabledAsteroids = 0;
     [Header("Asteroid")]
     [SerializeField] private Asteroid asteroid;
+    [SerializeField] private AsteroidParticles particles;
     [SerializeField] private int numberOfAsteroids = 10;
     private Asteroid[] asteroids;
+    public AsteroidParticles[] InstatiatedParticles {get; private set;}
 
     [Header("Positions X and Y")]
     [SerializeField] private int maximumXPosition = 1000;
@@ -18,6 +20,7 @@ public class AsteroidSpawn : MonoBehaviour
     private void Awake()
     {
         asteroids = new Asteroid[numberOfAsteroids];
+        InstatiatedParticles = new AsteroidParticles[numberOfAsteroids];
     }
 
     public void InstantiateAsteroids()
@@ -26,7 +29,10 @@ public class AsteroidSpawn : MonoBehaviour
         {
             for (int position = 0; position < numberOfAsteroids; position++)
             {
-                asteroids[position] = PhotonNetwork.Instantiate(asteroid.name, GetRandomPosition(), Quaternion.identity).GetComponent<Asteroid>();
+                Vector3 newPosition = GetRandomPosition();
+                asteroids[position] = PhotonNetwork.Instantiate(asteroid.name, newPosition, Quaternion.identity).GetComponent<Asteroid>();
+                asteroids[position].Index = position;
+                InstatiatedParticles[position] = PhotonNetwork.Instantiate(particles.name, newPosition, Quaternion.identity).GetComponent<AsteroidParticles>();
             }
         }
     }
@@ -58,10 +64,12 @@ public class AsteroidSpawn : MonoBehaviour
 
     private void SetAllAsteroids()
     {
-        foreach (Asteroid asteroid in asteroids)
+        for (int position = 0; position < numberOfAsteroids; position++)
         {
-            asteroid.transform.position = GetRandomPosition();
-            asteroid.SetAsEnabled();
+            Vector3 newPosition = GetRandomPosition();
+            asteroids[position].transform.position = newPosition;
+            asteroids[position].SetAsEnabled();
+            InstatiatedParticles[position].transform.position = newPosition;
         }
     }
 
