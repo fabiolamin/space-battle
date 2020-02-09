@@ -6,6 +6,7 @@ public class PlayerShooting : MonoBehaviour
 {
     private PhotonView photonView;
     private Missile[] missiles;
+    private AudioSource shootingSound;
     private int position = 0;
     [SerializeField] private Missile missile;
     [SerializeField] private int numberOfMissiles = 5;
@@ -15,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     {
         photonView = GetComponent<PhotonView>();
         missiles = new Missile[numberOfMissiles];
+        shootingSound = GetComponent<AudioSource>();
         if (photonView.IsMine)
         {
             photonView.RPC("InstantiateMissiles", RpcTarget.AllBuffered);
@@ -47,6 +49,7 @@ public class PlayerShooting : MonoBehaviour
         {
             SetMissile();
             Shoot();
+            shootingSound.Play();
             position++;
         }
         else
