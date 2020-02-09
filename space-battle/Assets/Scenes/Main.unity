@@ -1557,6 +1557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1298271622875385172, guid: 29b2dbe75cfb6fa4aad8521e7595b485,
     type: 3}
+  particles: {fileID: -3881735570168404123, guid: cafecd3fc3b761c45bb1553f35cf5c96,
+    type: 3}
   numberOfAsteroids: 30
   maximumXPosition: 1000
   minimumXPosition: 220
@@ -4520,7 +4522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f299c43d40006174d8f89757d9893ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 15
+  initialTime: 60
   timerText: {fileID: 1395121753}
 --- !u!114 &1913354304
 MonoBehaviour:
