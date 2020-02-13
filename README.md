@@ -1,2 +1,1 @@
-# space-battle
- Space Battle is 2D multiplayer game.
+Link to play: https://fabiolamin.itch.io/space-battle
